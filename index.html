@@ -9,12 +9,13 @@
 
 
 <style>
-        
-        #sonic{
-        position:absolute;
-        }
-        
-        
+    .box{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        margin: 200px auto 0;
+        background: yellowgreen;
+    }
 </style>
 </head>
 
@@ -23,27 +24,36 @@
         
     <h1> HI FRIENDS ITS SONIC THE HEDGEHOG TODAY ILL BE USING MY NEW BLUE GUN TAILS MADE FOR ME! HOPEFULLY IT WORKS. anyways good luck!</h1>
 
-<img id='sonic' src='sonic.png'>    
+<img class='box' src='sonic.png'>    
         
         
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <script type="text/javascript">
-                   
-            $(document).keydown(function(e) {
-              
-                if (e.which == '38') { //up arrow key
-                    $("#sonic").finish().animate({
-                        top: "-=50"
-                    }
-                 else{
-                      $("#sonic").finish().animate({
-                        top: "+=50"
-                    })
-                 }
-
-                }
-            });
-        </script>
+<script>
+$(document).keydown(function(e){
+    switch (e.which){
+    case 37:    //left arrow key
+        $(".box").finish().animate({
+            left: "-=50"
+        });
+        break;
+    case 38:    //up arrow key
+        $(".box").finish().animate({
+            top: "-=50"
+        });
+        break;
+    case 39:    //right arrow key
+        $(".box").finish().animate({
+            left: "+=50"
+        });
+        break;
+    case 40:    //bottom arrow key
+        $(".box").finish().animate({
+            top: "+=50"
+        });
+        break;
+    }
+});
+</script>
 </body>
 </html>
